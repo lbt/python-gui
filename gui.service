@@ -1,0 +1,16 @@
+[Unit]
+Description=Simple Python Console GUI
+StartLimitBurst=5
+StartLimitIntervalSec=10
+
+[Service]
+WorkingDirectory=/home/pi/python-gui
+ExecStart=/home/pi/venv-gui/bin/python3 /home/pi/python-gui/gui.py
+ExecReload=/bin/kill -HUP
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+RestartSec=5
+
+[Install]
+WantedBy=default.target
